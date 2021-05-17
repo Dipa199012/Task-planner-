@@ -5,30 +5,6 @@ body{
     font-size: 16px;
 }
 
-header a{
-    font-size: 48px;
-    color:#3858cd;
-    text-decoration: none;
-    margin-top: 15px;
-    padding-top: 150px;
-
-}
-
-
-
-/* .cardbody{
-    text-align: left;
-    --bs-gutter-x: 0rem;
-} */
-
-.cardbody a img{
-    height: 20px;
-    width: 20px;
-}
-.cardtitle{
- background-color: #DCC9C9;
-}
-
 .card-body{
     background-color: #EFEFEF;
 }
