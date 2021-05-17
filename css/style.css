@@ -1,8 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+     
 body{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     font-size: 16px;
 }
 
@@ -15,21 +14,18 @@ header a{
 
 }
 
-.container{
-    display: flex;
-    justify-content: center;
-}
 
-.cardbody{
+
+/* .cardbody{
     text-align: left;
     --bs-gutter-x: 0rem;
-}
+} */
 
 .cardbody a img{
     height: 20px;
     width: 20px;
 }
-.cardtitale{
+.cardtitle{
  background-color: #DCC9C9;
 }
 
