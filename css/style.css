@@ -19,3 +19,20 @@ header a{
     display: flex;
     justify-content: center;
 }
+
+.cardbody{
+    text-align: left;
+    --bs-gutter-x: 0rem;
+}
+
+.cardbody a img{
+    height: 20px;
+    width: 20px;
+}
+.cardtitale{
+ background-color: #DCC9C9;
+}
+
+.card-body{
+    background-color: #EFEFEF;
+}
