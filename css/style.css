@@ -8,3 +8,14 @@ body{
 .card-body{
     background-color: #EFEFEF;
 }
+
+
+.list-group{
+    flex-flow: row wrap;
+  align-content: space-between;
+  justify-content: space-between; 
+}
+
+.list-group-item{
+    border: none;
+}
