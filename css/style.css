@@ -11,7 +11,7 @@ body{
 
 
 .list-group{
-    flex-flow: row wrap;
+    flex-flow: row wrap !important;
   align-content: space-between;
   justify-content: space-between; 
 }
