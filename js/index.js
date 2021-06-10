@@ -7,6 +7,9 @@ const validateBox=()=>{
         errMsg.style.color='red';
        return errMsg.innerHTML="<span>name can't be empty or smaller than 5</span>";
        }
+       else{
+        return errMsg.innerHTML="";
+       }
 };
 addTaskBtn.addEventListener('click',validateBox);
 
@@ -20,6 +23,9 @@ const validateDesc=()=>{
         descErrMsg.style.color='red';
        return descErrMsg.innerHTML="<span>Description can't be empty or greater then 200 characters</span>";
        }
+       else{
+        return descErrMsg.innerHTML="";
+       }
 };
 addTaskBtn.addEventListener('click',validateDesc);
 //_____________ ____________ _____________ _________
@@ -31,6 +37,9 @@ const validateAsign=()=>{
     if(asignId.value === "" || asignId.value.length<5){
         asignErrMsg.style.color='red';
        return asignErrMsg.innerHTML="<span>assign value can't be empty or smaller than 5</span>";
+       }
+       else{
+        return asignErrMsg.innerHTML="";
        }
 };
 addTaskBtn.addEventListener('click',validateAsign);
@@ -52,6 +61,9 @@ const validateDate=()=>{
         dateErrMsg.style.color='red';
        return dateErrMsg.innerHTML="<span>Invalid date</span>";
        }
+       else{
+        return dateErrMsg.innerHTML="";
+       }
 };
 addTaskBtn.addEventListener('click',validateDate);
 
@@ -64,6 +76,9 @@ const validateStatus=()=>{
     if(statusId.value === ""){
         statusErrMsg.style.color='red';
        return statusErrMsg.innerHTML="<span>Status can't be empty</span>";
+       }
+       else{
+        return statusErrMsg.innerHTML="";
        }
 };
 addTaskBtn.addEventListener('click',validateStatus);
