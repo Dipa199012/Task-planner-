@@ -12,6 +12,7 @@ const asignErrMsg = document.getElementById("asign_valid");
 const form = document.getElementById('collapseExample');
 const descId = document.getElementById("description_form");
 const descErrMsg = document.getElementById("desc_valid");
+validationFail = 0;
 
 
 function clearFormField() {
@@ -20,44 +21,62 @@ function clearFormField() {
     asignId.value = "";
     dateId.value = "";
     statusId.value = "";
-    nameId.classList.remove("is-valid");
-    descId.classList.remove("is-valid");
-    asignId.classList.remove("is-valid");
-    dateId.classList.remove("is-valid");
-    statusId.classList.remove("is-valid");
 
 }
 
 
+
+
 const validateDesc = () => {
-    if (nameId.value === "" || nameId.value.length < 5) {
+    if (nameId.value.length < 5) {
         errMsg.style.color = 'red';
-        return errMsg.innerHTML = "<span>name can't be empty or smaller than 5</span>";
+        errMsg.innerHTML = "<span>name can't be smaller than 5</span>";
+        validationFail++;
     }
-    else if (descId.value === "" || descId.value.length > 200) {
-        descErrMsg.style.color = 'red';
-        return descErrMsg.innerHTML = "<span>Description can't be empty or greater then 200 characters</span>";
-    }
-    else if (asignId.value === "" || asignId.value.length < 5) {
-        asignErrMsg.style.color = 'red';
-        return asignErrMsg.innerHTML = "<span>assign value can't be empty or smaller than 5</span>";
-    }
-    else if (dateId.value === "") {
-        dateErrMsg.style.color = 'red';
-        return dateErrMsg.innerHTML = "<span>Invalid date</span>";
-    }
-    else if (statusId.value === "") {
-        statusErrMsg.style.color = 'red';
-        return statusErrMsg.innerHTML = "<span>Status can't be empty</span>";
-    }
-
     else {
-
         errMsg.innerHTML = "";
+
+    };
+
+    if (descId.value === "" || descId.value.length > 200) {
+        descErrMsg.style.color = 'red';
+        descErrMsg.innerHTML = "<span>Description can't be empty or greater then 200 characters</span>";
+        validationFail++;
+    }
+    else {
         descErrMsg.innerHTML = "";
+    }
+
+    if (asignId.value.length < 5) {
+        asignErrMsg.style.color = 'red';
+        asignErrMsg.innerHTML = "<span>assign smaller than 5</span>";
+        validationFail++;
+    }
+    else {
         asignErrMsg.innerHTML = "";
+    }
+    if (dateId.value === "") {
+        dateErrMsg.style.color = 'red';
+        dateErrMsg.innerHTML = "<span>Invalid date</span>";
+        validationFail++;
+    }
+    else {
         dateErrMsg.innerHTML = "";
+    }
+    if (statusId.value === "") {
+        statusErrMsg.style.color = 'red';
+        statusErrMsg.innerHTML = "<span>Status can't be empty</span>";
+        validationFail++;
+    } else {
         statusErrMsg.innerHTML = "";
+    }
+
+
+    if (validationFail > 0) {
+        validationFail = 0;
+        return;
+    }
+    else {
         taskManager.addTask(
             nameId.value,
             descId.value,
@@ -65,15 +84,14 @@ const validateDesc = () => {
             dateId.value,
             statusId.value
         );
-        console.log("Task Name :" + nameId.value.length);
-        console.log("User Name:" + nameId.value);
-        console.log("Description:" + descId.value);
-        console.log("Assign To:" + asignId.value);
-        console.log("Date:" + dateId.value);
+        console.log("Name: " + nameId.value);
+        console.log("Description: " + descId.value);
+        console.log("Assign To: " + asignId.value);
+        console.log("Date: " + dateId.value);
+        console.log("Status: " + statusId.value);
         clearFormField();
 
     }
-
 }
 
 form.addEventListener('submit', validateDesc);

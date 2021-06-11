@@ -17,12 +17,11 @@
             dueDate:dueDate,
             status:status
         };
-        this.tasks.push({task});
+        this.tasks.push(task);
     }
 }
 
-  //const taskManager = new TaskManager(0);
- //console.log(taskManager.tasks);
+  
 
 
 
