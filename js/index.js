@@ -29,9 +29,9 @@ function clearFormField() {
 
 
 const validateDesc = () => {
-    if (nameId.value.length < 5) {
+    if (nameId.value.trim().length < 5) {
         errMsg.style.color = 'red';
-        errMsg.innerHTML = "<span>name can't be smaller than 5</span>";
+        errMsg.innerHTML = "<span>Task name must be greater than 5 characters in length</span>";
         validationFail++;
     }
     else {
@@ -39,7 +39,7 @@ const validateDesc = () => {
 
     };
 
-    if (descId.value === "" || descId.value.length > 200) {
+    if (descId.value.trim() === "" || descId.value.trim().length > 200) {
         descErrMsg.style.color = 'red';
         descErrMsg.innerHTML = "<span>Description can't be empty or greater then 200 characters</span>";
         validationFail++;
@@ -48,9 +48,9 @@ const validateDesc = () => {
         descErrMsg.innerHTML = "";
     }
 
-    if (asignId.value.length < 5) {
+    if (asignId.value.trim().length < 5) {
         asignErrMsg.style.color = 'red';
-        asignErrMsg.innerHTML = "<span>assign smaller than 5</span>";
+        asignErrMsg.innerHTML = "<span>Name must be greater than 5 characters in length</span>";
         validationFail++;
     }
     else {
@@ -97,5 +97,5 @@ const validateDesc = () => {
 
 form.addEventListener('submit', validateDesc);
 
-
-
+const reset = document.getElementById("reset");
+reset.addEventListener('click',clearFormField);

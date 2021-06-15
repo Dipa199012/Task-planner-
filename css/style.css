@@ -17,3 +17,10 @@ body{
 .list-group-item{
     border: none;
 }
+.asterisk{
+    font-size: 9px;
+    vertical-align: middle;
+}
+.note{
+    font-size: 12px;
+}
