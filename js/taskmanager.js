@@ -3,7 +3,7 @@ function createTaskHtml(name,description,assignTo,dueDate,status){
     <div class="card border-light mb-3">
     <div class="card-header bg-warning d-flex justify-content-between">
       <span class="fw-bold">${dueDate}</span>
-      <span class="text-muted small">Status: ${status}</span>
+      <span class="text-muted small">${status}</span>
     </div>
     <div class="card-body">
       <h5 class="card-title">${name}</h5>
@@ -15,7 +15,7 @@ function createTaskHtml(name,description,assignTo,dueDate,status){
         </div>
         <div>
           <a class="p-2" href="#"><i class="bi bi-trash text-danger"></i></a>
-          <a class="p-2" href="#"><i class="bi bi-pencil text-success"></i></a>
+          <a class="p-2" href="#"><i class="bi bi-check-lg text-success"></i></a>
         </div>
       </div>
     </div>

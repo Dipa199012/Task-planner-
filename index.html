@@ -44,7 +44,7 @@
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-4">
-                <label for="name_form" class="form-label">Name</label>
+                <label for="name_form" class="form-label">Task name <i class="bi bi-asterisk text-danger asterisk"></i></label>
               </div>
               <div class="col-md-8">
                 <span id="name_valid"></span>
@@ -56,7 +56,7 @@
           <div class="col-12">
             <div class="row">
               <div class="col-md-4">
-                <label for="description_form" class="form-label">Description</label>
+                <label for="description_form" class="form-label">Description <i class="bi bi-asterisk text-danger asterisk"></i></label>
               </div>
               <div class="col-md-8">
                 <span id="desc_valid"></span>
@@ -67,7 +67,7 @@
           <div class="col-12">
             <div class="row">
               <div class="col-md-4">
-                <label for="assigned_form" class="form-label">Assigned To</label>
+                <label for="assigned_form" class="form-label">Assigned To <i class="bi bi-asterisk text-danger asterisk"></i></label>
               </div>
               <div class="col-md-8">
                 <span id="asign_valid"></span>
@@ -78,7 +78,7 @@
           <div class="col-12">
             <div class="row">
               <div class="col-md-4">
-                <label for="date_form" class="form-label">Due Date</label>
+                <label for="date_form" class="form-label">Due Date <i class="bi bi-asterisk text-danger asterisk"></i></label>
               </div>
               <div class="col-md-8">
                 <span id="date_valid"></span>
@@ -89,7 +89,7 @@
           <div class="col-12">
             <div class="row">
               <div class="col-md-4">
-                <label for="inputStatus" class="form-label">Status</label>
+                <label for="inputStatus" class="form-label">Status <i class="bi bi-asterisk text-danger asterisk"></i></label>
               </div>
               <div class="col-md-8">
                 <span id="status_valid"></span>
@@ -109,8 +109,11 @@
                 <button type="submit" id="submit_btn" class="btn btn-primary">Submit</button>
               </div>
               <div class="col-2 m-2">
-                <a href="#">Cancel</a>
+                <a href="#" id="reset">Reset</a>
               </div>
+              <p class="text-black-50 fst-italic note mt-1">
+               Note: <i class="bi bi-asterisk text-danger asterisk"></i> Required field
+              </p>
             </div>
           </div>
         </form>
