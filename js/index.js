@@ -1,5 +1,6 @@
 const taskManager = new TaskManager(0);
 
+
 const nameId = document.getElementById("name_form");
 const errMsg = document.getElementById("name_valid");
 const addTaskBtn = document.getElementById("submit_btn");
@@ -90,7 +91,7 @@ const validateDesc = () => {
         console.log("Date: " + dateId.value);
         console.log("Status: " + statusId.value);
         clearFormField();
-
+        taskManager.render();
     }
 }
 
