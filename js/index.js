@@ -17,11 +17,11 @@ validationFail = 0;
 
 
 function clearFormField() {
-    nameId.value = "";
-    descId.value = "";
-    asignId.value = "";
-    dateId.value = "";
-    statusId.value = "";
+    nameId.value= "";
+    descId.value= "";
+    asignId.value= "";
+    dateId.value= "";
+    statusId.value= "";
 
 }
 
