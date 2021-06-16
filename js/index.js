@@ -10,11 +10,12 @@ const statusId = document.getElementById("inputStatus");
 const statusErrMsg = document.getElementById("status_valid");
 const asignId = document.getElementById("assigned_form");
 const asignErrMsg = document.getElementById("asign_valid");
-const form = document.getElementById('collapseExample');
+const form = document.getElementById("collapseExample");
 const descId = document.getElementById("description_form");
 const descErrMsg = document.getElementById("desc_valid");
 validationFail = 0;
-
+//calanderblock function
+dateId.min = new Date().toISOString().split("T")[0];
 
 function clearFormField() {
     nameId.value = "";
@@ -48,7 +49,7 @@ const validateDesc = () => {
         descErrMsg.innerHTML = "";
     }
 
-    if (asignId.value.trim().length < 5) {
+    if (asignId.value.trim().length < 5||asignId.value.trim().length > 15) {
         asignErrMsg.style.color = 'red';
         asignErrMsg.innerHTML = "<span>Name must be greater than 5 characters in length</span>";
         validationFail++;
@@ -99,3 +100,29 @@ form.addEventListener('submit', validateDesc);
 
 const reset = document.getElementById("reset");
 reset.addEventListener('click',clearFormField);
+
+const card=document.getElementById("card");
+
+function done(event){
+    
+    if(event.target.classList.contains("bi-check-lg")){
+        const parentTask =
+      event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+      const taskId = Number(parentTask.dataset.taskId);
+
+      const task = taskManager.getTaskById(taskId);
+      task.status = "Done";
+     taskManager.render();
+    
+    }
+   
+}
+function hide(){
+    const doneicon=document.getElementById("donebutton");
+
+    doneicon.innerHTML="";
+}
+
+card.addEventListener('click',done,hide);
+
+

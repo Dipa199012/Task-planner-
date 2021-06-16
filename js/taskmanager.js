@@ -1,5 +1,5 @@
-function createTaskHtml(name,description,assignTo,dueDate,status){
-    const html = `<li class="list-group-item d-flex justify-content-between align-items-center col-sm-6 col-lg-4">
+function createTaskHtml(id,name,description,assignTo,dueDate,status){
+    const html = `<li class="list-group-item d-flex justify-content-between align-items-center col-sm-6 col-lg-4" data-task-id="${id}">
     <div class="card border-light mb-3">
     <div class="card-header bg-warning d-flex justify-content-between">
       <span class="fw-bold">${dueDate}</span>
@@ -15,7 +15,7 @@ function createTaskHtml(name,description,assignTo,dueDate,status){
         </div>
         <div>
           <a class="p-2" href="#"><i class="bi bi-trash text-danger"></i></a>
-          <a class="p-2" href="#"><i class="bi bi-check-lg text-success"></i></a>
+          <a class="p-2" id="donebutton" href="#donebutton"><i class="bi bi-check-lg text-success" id="doneicon"></i></a>
         </div>
       </div>
     </div>
@@ -37,17 +37,31 @@ return html;
      addTask(name,discription,assignTo,dueDate,status){
         
         const task ={
-            id:this.currentId++,
-            name:name,
-            discription:discription,
-            assignTo:assignTo,
-            dueDate:dueDate,
-            status:status
+            id: this.currentId++,
+            name: name,
+            discription: discription,
+            assignTo: assignTo,
+            dueDate: dueDate,
+            status: status
         };
         this.tasks.push(task);
     }
+
+      getTaskById(taskId){
+        let foundTask;
+       for(let i=0;i<this.tasks.length;i++){
+        const task = this.tasks[i];
+        if(task.id===taskId){
+          foundTask = task;
+        }
+       }
+       return foundTask;
+
+      }
+
+
     render(){
-        const tasksHtmlList=[];
+        let tasksHtmlList=[];
         for(let i=0;i<this.tasks.length;i++){
             const task=this.tasks[i];
 
@@ -55,11 +69,13 @@ return html;
             const formattedDate=date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
             const taskHtml=createTaskHtml( 
+                task.id,
                 task.name,
                 task.discription,
                 task.assignTo,
                 formattedDate,
                 task.status
+                
               );
               tasksHtmlList.push(taskHtml);
          }
