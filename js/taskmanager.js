@@ -1,9 +1,9 @@
-function createTaskHtml(id,name,description,assignTo,dueDate,status){
-    const html = `<li class="list-group-item d-flex justify-content-between align-items-center col-sm-6 col-lg-4" data-task-id="${id}">
+function createTaskHtml(id, name, description, assignTo, dueDate, status) {
+  const html = `<li class="list-group-item d-flex justify-content-between align-items-center col-sm-6 col-lg-4" data-task-id="${id}">
     <div class="card border-light mb-3">
     <div class="card-header bg-warning d-flex justify-content-between">
       <span class="fw-bold">${dueDate}</span>
-      <span class="text-muted small">${status}</span>
+      <span class="text-muted small" id="status">${status}</span>
     </div>
     <div class="card-body">
       <h5 class="card-title">${name}</h5>
@@ -15,7 +15,7 @@ function createTaskHtml(id,name,description,assignTo,dueDate,status){
         </div>
         <div>
           <a class="p-2" href="#"><i class="bi bi-trash text-danger"></i></a>
-          <a class="p-2" id="donebutton" href="#donebutton"><i class="bi bi-check-lg text-success" id="doneicon"></i></a>
+          <a class="p-2" href="#donebutton"><i class="bi bi-check-lg text-success ${status.toLowerCase() == "done" ? "d-none" : ""}"></i></a>
         </div>
       </div>
     </div>
@@ -23,71 +23,70 @@ function createTaskHtml(id,name,description,assignTo,dueDate,status){
   </div>
   </li>
 `
-return html;
+  return html;
 
 };
 
- class TaskManager{
-    constructor(currentId=0)
-    {
-        this.tasks=[];
-        this.currentId=currentId;
-     }
-     
-     addTask(name,discription,assignTo,dueDate,status){
-        
-        const task ={
-            id: this.currentId++,
-            name: name,
-            discription: discription,
-            assignTo: assignTo,
-            dueDate: dueDate,
-            status: status
-        };
-        this.tasks.push(task);
-    }
+class TaskManager {
+  constructor(currentId = 0) {
+    this.tasks = [];
+    this.currentId = currentId;
+  }
 
-      getTaskById(taskId){
-        let foundTask;
-       for(let i=0;i<this.tasks.length;i++){
-        const task = this.tasks[i];
-        if(task.id===taskId){
-          foundTask = task;
-        }
-       }
-       return foundTask;
+  addTask(name, discription, assignTo, dueDate, status) {
 
+    const task = {
+      id: this.currentId++,
+      name: name,
+      discription: discription,
+      assignTo: assignTo,
+      dueDate: dueDate,
+      status: status
+    };
+    this.tasks.push(task);
+  }
+
+  getTaskById(taskId) {
+    let foundTask;
+    for (let i = 0; i < this.tasks.length; i++) {
+      const task = this.tasks[i];
+      if (task.id === taskId) {
+        foundTask = task;
       }
-
-
-    render(){
-        let tasksHtmlList=[];
-        for(let i=0;i<this.tasks.length;i++){
-            const task=this.tasks[i];
-
-            const date = new Date(task.dueDate);
-            const formattedDate=date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
-
-            const taskHtml=createTaskHtml( 
-                task.id,
-                task.name,
-                task.discription,
-                task.assignTo,
-                formattedDate,
-                task.status
-                
-              );
-              tasksHtmlList.push(taskHtml);
-         }
-
-         const tasksHtml=tasksHtmlList.join("");
-
-         const tasksList=document.querySelector('#card');
-         tasksList.innerHTML=tasksHtml;
     }
+    return foundTask;
+
+  }
+
+
+  render() {
+    let tasksHtmlList = [];
+    for (let i = 0; i < this.tasks.length; i++) {
+      const task = this.tasks[i];
+
+      const date = new Date(task.dueDate);
+      const formattedDate = date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+
+      const taskHtml = createTaskHtml(
+        task.id,
+        task.name,
+        task.discription,
+        task.assignTo,
+        formattedDate,
+        task.status
+
+      );
+      tasksHtmlList.push(taskHtml);
+    }
+
+    const tasksHtml = tasksHtmlList.join("");
+
+    const tasksList = document.querySelector('#card');
+    tasksList.innerHTML = tasksHtml;
+  }
 }
 
-  
+
 
 
 
