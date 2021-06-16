@@ -25,10 +25,6 @@ function clearFormField() {
     statusId.value= "";
 
 }
-
-
-
-
 const validateDesc = () => {
     if (nameId.value.trim().length < 5) {
         errMsg.style.color = 'red';
@@ -49,7 +45,7 @@ const validateDesc = () => {
         descErrMsg.innerHTML = "";
     }
 
-    if (asignId.value.trim().length < 5||asignId.value.trim().length > 15) {
+    if (asignId.value.trim().length < 5 || asignId.value.trim().length > 15) {
         asignErrMsg.style.color = 'red';
         asignErrMsg.innerHTML = "<span>Name must be greater than 5 characters in length</span>";
         validationFail++;
@@ -74,11 +70,13 @@ const validateDesc = () => {
     }
 
 
+
     if (validationFail > 0) {
         validationFail = 0;
         return;
     }
     else {
+       
         taskManager.addTask(
             nameId.value,
             descId.value,
@@ -98,31 +96,25 @@ const validateDesc = () => {
 
 form.addEventListener('submit', validateDesc);
 
+//reset button functionality
 const reset = document.getElementById("reset");
-reset.addEventListener('click',clearFormField);
+reset.addEventListener('click', clearFormField);
 
-const card=document.getElementById("card");
+//done button changing status functionality
+const card = document.getElementById("card");
 
-function done(event){
-    
-    if(event.target.classList.contains("bi-check-lg")){
+function done(event) {
+
+    if (event.target.classList.contains("bi-check-lg")) {
         const parentTask =
-      event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-      const taskId = Number(parentTask.dataset.taskId);
+            event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+        const taskId = Number(parentTask.dataset.taskId);
+        const task = taskManager.getTaskById(taskId);
+        task.status = "Done";
+        taskManager.render();
 
-      const task = taskManager.getTaskById(taskId);
-      task.status = "Done";
-     taskManager.render();
-    
     }
-   
 }
-function hide(){
-    const doneicon=document.getElementById("donebutton");
-
-    doneicon.innerHTML="";
-}
-
-card.addEventListener('click',done,hide);
+card.addEventListener('click', done);
 
 
