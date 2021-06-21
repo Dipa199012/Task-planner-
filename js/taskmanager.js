@@ -1,5 +1,9 @@
+
+
+
+
 function createTaskHtml(id, name, description, assignTo, dueDate, status) {
-  const html = `<li class="list-group-item d-flex justify-content-between align-items-center col-sm-6 col-lg-4" data-task-id="${id}">
+  const html = `<li class="list-group-item justify-content-between align-items-center col-sm-6 col-lg-4" data-task-id="${id}">
     <div class="card border-light mb-3">
     <div class="card-header bg-warning d-flex justify-content-between">
       <span class="fw-bold">${dueDate}</span>

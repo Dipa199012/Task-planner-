@@ -118,3 +118,7 @@ function done(event) {
 card.addEventListener('click', done);
 
 
+const statuscolor=document.getElementById("status");
+if(statuscolor.value==="Done"){
+    statuscolor.style.color="Green";
+}
