@@ -47,9 +47,9 @@ const validateDesc = () => {
         descErrMsg.innerHTML = "";
     }
 
-    if (asignId.value.trim().length < 5 || asignId.value.trim().length > 15) {
+    if (asignId.value.trim().length > 15) {
         asignErrMsg.style.color = 'red';
-        asignErrMsg.innerHTML = "<span>Name must be greater than 5 characters in length</span>";
+        asignErrMsg.innerHTML = "<span>Name must be less than 15 characters in length</span>";
         validationFail++;
     }
     else {
