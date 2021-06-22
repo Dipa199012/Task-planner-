@@ -1,4 +1,6 @@
 const taskManager = new TaskManager(0);
+taskManager.load();
+taskManager.render();
 
 
 const nameId = document.getElementById("name_form");
@@ -91,6 +93,7 @@ const validateDesc = () => {
         console.log("Status: " + statusId.value);
         clearFormField();
         taskManager.render();
+        taskManager.save();
     }
 }
 
@@ -112,13 +115,14 @@ function done(event) {
         const task = taskManager.getTaskById(taskId);
         task.status = "Done";
         taskManager.render();
+        taskManager.save();
 
     }
 }
 card.addEventListener('click', done);
 
 
-const statuscolor=document.getElementById("status");
-if(statuscolor.value==="Done"){
-    statuscolor.style.color="Green";
-}
+// const statuscolor=document.getElementById("status");
+// if(statuscolor.value==="Done"){
+//     statuscolor.style.color="Green";
+// }
