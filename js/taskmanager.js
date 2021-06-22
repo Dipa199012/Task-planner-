@@ -105,11 +105,11 @@ class TaskManager {
     }
 
   }
-  deleteTask(taskId){
+  deleteTask(taskId) {
     const newTasks = [];
-    for(let i =0; i<this.tasks.length; i++){
+    for (let i = 0; i < this.tasks.length; i++) {
       const task = this.tasks[i];
-      if(task.id !== taskId){
+      if (task.id !== taskId) {
         newTasks.push(task);
       }
     }

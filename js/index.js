@@ -20,11 +20,11 @@ validationFail = 0;
 dateId.min = new Date().toISOString().split("T")[0];
 
 function clearFormField() {
-    nameId.value= "";
-    descId.value= "";
-    asignId.value= "";
-    dateId.value= "";
-    statusId.value= "";
+    nameId.value = "";
+    descId.value = "";
+    asignId.value = "";
+    dateId.value = "";
+    statusId.value = "";
 
 }
 const validateDesc = () => {
