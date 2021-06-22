@@ -78,7 +78,7 @@ const validateDesc = () => {
         return;
     }
     else {
-       
+
         taskManager.addTask(
             nameId.value,
             descId.value,
@@ -120,9 +120,3 @@ function done(event) {
     }
 }
 card.addEventListener('click', done);
-
-
-// const statuscolor=document.getElementById("status");
-// if(statuscolor.value==="Done"){
-//     statuscolor.style.color="Green";
-// }

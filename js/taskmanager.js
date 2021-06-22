@@ -1,7 +1,4 @@
 
-
-
-
 function createTaskHtml(id, name, description, assignTo, dueDate, status) {
   const html = `<li class="list-group-item justify-content-between align-items-center col-sm-6 col-lg-4" data-task-id="${id}">
     <div class="card border-light mb-3">
@@ -89,14 +86,14 @@ class TaskManager {
     tasksList.innerHTML = tasksHtml;
   }
 
-  save(){
-   const tasksJson = JSON.stringify(this.tasks);
-   localStorage.setItem('tasks',tasksJson);
-   const currentId = String(this.currentId);
-   localStorage.setItem('currentId',currentId);
+  save() {
+    const tasksJson = JSON.stringify(this.tasks);
+    localStorage.setItem('tasks', tasksJson);
+    const currentId = String(this.currentId);
+    localStorage.setItem('currentId', currentId);
   }
-  load(){
-    if(localStorage.getItem('tasks')){
+  load() {
+    if (localStorage.getItem('tasks')) {
       const tasksJson = localStorage.getItem('tasks');
       this.tasks = JSON.parse(tasksJson);
 
