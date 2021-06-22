@@ -15,7 +15,7 @@ function createTaskHtml(id, name, description, assignTo, dueDate, status) {
           <i class="bi bi-person text-success"></i> <small class="text-muted">${assignTo}</small>
         </div>
         <div>
-          <a class="p-2" href="#"><i class="bi bi-trash text-danger"></i></a>
+          <a class="p-2" href="#"><i class="bi bi-trash text-danger delete-button"></i></a>
           <a class="p-2" href="#donebutton"><i class="bi bi-check-lg text-success ${status.toLowerCase() == "done" ? "d-none" : ""}"></i></a>
         </div>
       </div>
@@ -104,6 +104,16 @@ class TaskManager {
       this.currentId = Number(currentId);
     }
 
+  }
+  deleteTask(taskId){
+    const newTasks = [];
+    for(let i =0; i<this.tasks.length; i++){
+      const task = this.tasks[i];
+      if(task.id !== taskId){
+        newTasks.push(task);
+      }
+    }
+    this.tasks = newTasks;
   }
 }
 
