@@ -1,10 +1,11 @@
 
 function createTaskHtml(id, name, description, assignTo, dueDate, status) {
-  const html = `<li class="list-group-item justify-content-between align-items-center col-sm-6 col-lg-4" data-task-id="${id}">
+  if(status==="ToDo"){
+  const html = `<li class="filterDiv todo list-group-item justify-content-between align-items-center col-sm-6 col-lg-4" data-task-id="${id}">
     <div class="card border-light mb-3">
-    <div class="card-header bg-warning d-flex justify-content-between">
+    <div class="card-header bg-danger d-flex justify-content-between">
       <span class="fw-bold">${dueDate}</span>
-      <span class="text-muted small" id="status">${status}</span>
+      <span class="text-white small" id="status">${status}</span>
     </div>
     <div class="card-body">
       <h5 class="card-title">${name}</h5>
@@ -25,6 +26,89 @@ function createTaskHtml(id, name, description, assignTo, dueDate, status) {
   </li>
 `
   return html;
+ }
+ else if(status==="In Progress"){
+  const html = `<li class="filterDiv inprogress list-group-item justify-content-between align-items-center col-sm-6 col-lg-4" data-task-id="${id}">
+    <div class="card border-light mb-3">
+    <div class="card-header bg-warning d-flex justify-content-between">
+      <span class="fw-bold">${dueDate}</span>
+      <span class="text-white small" id="status">${status}</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">${name}</h5>
+      <p class="card-text">${description}</p>
+
+      <div class="card-footer bg-transparent border-warning d-flex justify-content-between">
+        <div class="">
+          <i class="bi bi-person text-success"></i> <small class="text-muted">${assignTo}</small>
+        </div>
+        <div>
+          <a class="p-2" href="#"><i class="bi bi-trash text-danger delete-button"></i></a>
+          <a class="p-2" href="#donebutton"><i class="bi bi-check-lg text-success ${status.toLowerCase() == "done" ? "d-none" : ""}"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </li>
+`
+  return html;
+ }
+ else if(status==="Review"){
+  const html = `<li class="filterDiv review list-group-item justify-content-between align-items-center col-sm-6 col-lg-4" data-task-id="${id}">
+    <div class="card border-light mb-3">
+    <div class="card-header bg-info d-flex justify-content-between">
+      <span class="fw-bold">${dueDate}</span>
+      <span class="text-white small" id="status">${status}</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">${name}</h5>
+      <p class="card-text">${description}</p>
+
+      <div class="card-footer bg-transparent border-warning d-flex justify-content-between">
+        <div class="">
+          <i class="bi bi-person text-success"></i> <small class="text-muted">${assignTo}</small>
+        </div>
+        <div>
+          <a class="p-2" href="#"><i class="bi bi-trash text-danger delete-button"></i></a>
+          <a class="p-2" href="#donebutton"><i class="bi bi-check-lg text-success ${status.toLowerCase() == "done" ? "d-none" : ""}"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </li>
+`
+  return html;
+ }
+ else if(status==="Done"){
+  const html = `<li class="filterDiv done list-group-item justify-content-between align-items-center col-sm-6 col-lg-4" data-task-id="${id}">
+    <div class="card border-light mb-3">
+    <div class="card-header bg-success d-flex justify-content-between">
+      <span class="fw-bold">${dueDate}</span>
+      <span class="text-white small" id="status">${status}</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">${name}</h5>
+      <p class="card-text">${description}</p>
+
+      <div class="card-footer bg-transparent border-warning d-flex justify-content-between">
+        <div class="">
+          <i class="bi bi-person text-success"></i> <small class="text-muted">${assignTo}</small>
+        </div>
+        <div>
+          <a class="p-2" href="#"><i class="bi bi-trash text-danger delete-button"></i></a>
+          <a class="p-2" href="#donebutton"><i class="bi bi-check-lg text-success ${status.toLowerCase() == "done" ? "d-none" : ""}"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  </li>
+`
+  return html;
+ }
+
 
 };
 

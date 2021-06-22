@@ -24,3 +24,12 @@ body{
 .note{
     font-size: 12px;
 }
+
+/* filter button style here  */
+  .filterDiv {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+
