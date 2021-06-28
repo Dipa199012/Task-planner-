@@ -129,13 +129,15 @@
   <!--  form ends -->
 
   <!-- Button section start  -->
-  <div class="cointainer">
-    <div id="myBtnContainer">
-      <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-      <button class="btn" onclick="filterSelection('todo')"> ToDo</button>
-      <button class="btn" onclick="filterSelection('inprogress')"> In Progress</button>
-      <button class="btn" onclick="filterSelection('review')"> Review</button>
-      <button class="btn" onclick="filterSelection('done')"> Done</button>
+  <div class="cointainer ">
+    <div id="myBtnContainer" class="row justify-content-sm-center">
+      <div class="col-sm-10 col-md-8 col-lg-6 text-center p-3 bg-light">
+      <button class="btn active" id="all" onclick="filterSelection('all')"> Show all</button>
+      <button class="btn text-danger" id="todo" onclick="filterSelection('todo')"> ToDo</button>
+      <button class="btn text-warning" id="inprogress" onclick="filterSelection('inprogress')"> In Progress</button>
+      <button class="btn text-info" id="review" onclick="filterSelection('review')"> Review</button>
+      <button class="btn text-success" id="done" onclick="filterSelection('done')"> Done</button>
+    </div>
     </div>
   </div>
   <!-- Button section End  -->

@@ -33,3 +33,11 @@ body{
     display: block;
   }
 
+  .btn.active{
+      border:1px solid #ccc;
+  }
+
+  .btn.active:focus{
+      outline: none;
+      box-shadow: none;
+  }

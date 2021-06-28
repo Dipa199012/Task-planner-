@@ -99,6 +99,7 @@ const validateDesc = () => {
         clearFormField();
         taskManager.render();
         taskManager.save();
+        filterSelection(getCurrantlyActiveTab());
     }
 }
 
@@ -121,6 +122,8 @@ function done(event) {
         task.status = "Done";
         taskManager.save();
         taskManager.render();
+        filterSelection(getCurrantlyActiveTab());
+        
 
     }
 
@@ -131,6 +134,7 @@ function done(event) {
         taskManager.deleteTask(taskId);
         taskManager.save();
         taskManager.render();
+        filterSelection(getCurrantlyActiveTab());
 
     }
 }
@@ -187,4 +191,9 @@ for (var i = 0; i < btns.length; i++) {
     current[0].className = current[0].className.replace(" active", "");
     this.className += " active";
   });
+}
+
+function getCurrantlyActiveTab(){
+  var current = document.getElementsByClassName("active")[0];
+  return current.id;
 }
